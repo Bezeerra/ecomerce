@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
-
+from app import app
+from app import admin
 #dynaconf
 #flask_admin
 #SQLAlchemy
@@ -8,17 +9,13 @@ from flask_bootstrap import Bootstrap
 #flask_sqlalchemy
 
 
-app = Flask(__name__)
-Bootstrap(app)
 
 
 #**locals()
-@app.route("/")
+@app.route('/')
 def index():
-    products = ['ciabatta', 'baguete', 'Pretzel']
-    return render_template("index.html", products=products)
-
-
+    params = ['Matheus', 'Bezerra']
+    return render_template("index.html", products=params)
 
 if __name__ == "__main__":
     app.run(debug=True)
